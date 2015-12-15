@@ -4014,6 +4014,8 @@
                                         callback(err);
                                         return;
                                     }
+                                    if (res === null)
+                                        res = ""
                                     try { res = method.resolvedResponseType.clazz.decode(res); } catch (notABuffer) {}
                                     if (!res || !(res instanceof method.resolvedResponseType.clazz)) {
                                         callback(Error("Illegal response type received in service method "+ T.name+"#"+method.name));
